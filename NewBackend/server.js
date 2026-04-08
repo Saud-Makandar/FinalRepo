@@ -5,7 +5,8 @@ const { Server } = require('socket.io');
 const path = require('path');
 const env = require("dotenv");
 
-
+env.config()
+console.log(process.env.client);
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
