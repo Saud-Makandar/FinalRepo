@@ -3,6 +3,8 @@ const cors = require('cors');
 const http = require('http');
 const { Server } = require('socket.io');
 const path = require('path');
+const env = require("dotenv");
+
 
 const app = express();
 const server = http.createServer(app);
@@ -262,10 +264,10 @@ server.listen(PORT, '0.0.0.0', () => {
     console.log(`✅ Server: http://localhost:${PORT}`);
     console.log(`🌐 Network: http://${localIP}:${PORT}`);
     console.log('\n📱 INTERFACES:');
-    console.log(`  🚗 Driver:    http://${localIP}:${PORT}/carDriver.html`);
-    console.log(`  🏥 Hospital1: http://${localIP}:${PORT}/hospital1.html`);
-    console.log(`  🏥 Hospital2: http://${localIP}:${PORT}/hospital2.html`);
-    console.log(`  🏥 Hospital3: http://${localIP}:${PORT}/hospital3.html`);
+    console.log(`  🚗 Driver:    ${process.env.client}/carDriver.html`);
+    console.log(`  🏥 Hospital1: ${process.env.client}/hospital1.html`);
+    console.log(`  🏥 Hospital2: ${process.env.client}/hospital2.html`);
+    console.log(`  🏥 Hospital3: ${process.env.client}/hospital3.html`);
     console.log('\n🔧 ESP32 Configuration:');
     console.log(`  Server URL: http://${localIP}:${PORT}/api/fsr-trigger`);
     console.log('='.repeat(60) + '\n');
